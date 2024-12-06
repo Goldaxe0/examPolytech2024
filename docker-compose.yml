@@ -1,0 +1,47 @@
+networks:
+  network:
+volumes:
+  database:
+services:
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: myBDD
+      MYSQL_USER: userBDD
+      MYSQL_ROOT_PASSWORD: passwordBDD
+    networks:
+      - network
+    volumes:
+      - database:/var/lib/mysql/data:rw
+    healthcheck:
+      test: mysqladmin ping -h localhost
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+
+  java:
+    image: java
+    build:
+      context: java
+      dockerfile: Dockerfile
+    container_name: docker_java
+    environment:
+      SPRING_DATASOURCE_USERNAME: userBDD
+      SPRING_DATASOURCE_PASSWORD: passwordBDD
+    ports:
+      - 8448:8448
+    networks:
+      - network
+
+  angular:
+    image: angular
+    container_name: docker_angular
+    build:
+      context: angular
+      dockerfile: Dockerfile
+    environment:
+      BACKEND_URL: http://localhost:8448
+    ports:
+      - 8888:80
