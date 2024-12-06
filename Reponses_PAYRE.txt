@@ -1,0 +1,20 @@
+1) Qu'est ce que Docker ? A quoi cela sert-il ?
+Docker permet de faire des conteneurs et faire tourner des applications indépendament de l'OS
+Les conteneurs pèsent moins lourd que des VM
+
+2) Qu'est ce que la CI et la CD ? Pourquoi est-ce utile ?
+La CI permet:
+    - Mettre toutes les contributions sur le code 
+    - évaluer son contenu
+
+La CD permet:
+    - Déployer les livrables dans différents env
+    - évaluer avant de passer à l'environement suivant
+    - corriger les bugs avant la mise en prod
+
+3) Qu'avez vous pensez du cours ?
+Très sympa meme si cela ne me sert pas, on en a souvent entendu parler mais jamais approfondi donc c'était interessant
+mais un peu rapide si on a du retard à un moment
+
+4) Surprenez moi
+BOUH! ça marche?
